@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Edit Post</title> 
+{% endblock %}
+
+{% block body %}
+<h1>Editing Post</h1>
+
+{#    <script>#}
+{#        // define the callAPI function that takes a first name and last name as parameters#}
+{#        var callAPI = (Title,Author,Content,Datetime)=>{#}
+{#            // instantiate a headers object#}
+{#            const myHeaders = new Headers();#}
+{#            // add content type header to object#}
+{#            myHeaders.append("Content-Type", "application/json");#}
+{#            // using built in JSON utility package turn object to string and store in a variable#}
+{#            const raw = JSON.stringify({"title":Title,"userid":Author,"content":Content,"datetime",Datetime});#}
+{#            // create a JSON object with parameters for API call and store in a variable#}
+{#            const requestOptions = {#}
+{#                method: 'POST',#}
+{#                headers: myHeaders,#}
+{#                body: raw,#}
+{#                redirect: 'follow'#}
+{#            };#}
+{#            // make API call with parameters and use promises to get response#}
+{#            fetch("YOUR-API-INVOKE-URL", requestOptions)#}
+{#            .then(response => response.text())#}
+{#            .then(result => alert(JSON.parse(result).body))#}
+{#            .catch(error => console.log('error', error));#}
+{#        }#}
+{#    </script>#}
+{##}
+{#    <body>#}
+{#    <form>#}
+{#        <!-- set button onClick method to call function we defined passing input values as parameters -->#}
+{#        <button type="button" onclick="callAPI(document.getElementById('title').value,document.getElementById('author').value,document.getElementById('content').value,document.getElementById('datetime').value)">Submit</button>#}
+{#    </form>#}
+{#</body>#}
+
+    <hr>
+    <h2>Edit:</h2>
+    <form action='/posts/edit/{{post.title}}' method='POST'>
+{#        <label for="title">Title:</label>#}
+{#        <input class="form-control" type="text" name='title' id='title' value="{{ post.title }}" aria-label="Enter Title">#}
+        <br>
+        <br>
+        <label for="content">Post:</label>
+        <textarea class="form-control" name='content' id="content" aria-label="Enter Content" rows="3">{{ post.content }}</textarea>
+        <br>
+        <input type='submit' value='Save'>
+    </form>
+    <hr>
+{% endblock %}

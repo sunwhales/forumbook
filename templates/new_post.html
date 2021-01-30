@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New Post</title> 
+{% endblock %}
+
+{% block body %}
+<h1>New Post</h1>
+
+    <hr>
+    <h2>Create New Blog Post:</h2>
+
+
+{#    <script>#}
+{#        // define the callAPI function that takes a first name and last name as parameters#}
+{#        var callAPI = (Title,Author,Content,Datetime)=>{#}
+{#            // instantiate a headers object#}
+{#            var myHeaders = new Headers();#}
+{#            // add content type header to object#}
+{#            myHeaders.append("Content-Type", "application/json");#}
+{#            // using built in JSON utility package turn object to string and store in a variable#}
+{#            var raw = JSON.stringify({"title":Title,"userid":Author,"content":Content,"datetime",Datetime});#}
+{#            // create a JSON object with parameters for API call and store in a variable#}
+{#            var requestOptions = {#}
+{#                method: 'POST',#}
+{#                headers: myHeaders,#}
+{#                body: raw,#}
+{#                redirect: 'follow'#}
+{#            };#}
+{#            // make API call with parameters and use promises to get response#}
+{#            fetch("YOUR-API-INVOKE-URL", requestOptions)#}
+{#            .then(response => response.text())#}
+{#            .then(result => alert(JSON.parse(result).body))#}
+{#            .catch(error => console.log('error', error));#}
+{#        }#}
+{#    </script>#}
+{##}
+{#    <body>#}
+{#    <form>#}
+{#        <!-- set button onClick method to call function we defined passing input values as parameters -->#}
+{#        <button type="button" onclick="callAPI(document.getElementById('title').value,document.getElementById('author').value,document.getElementById('content').value,document.getElementById('datetime').value)">Submit</button>#}
+{#    </form>#}
+{#</body>#}
+
+
+
+
+    <form action='/posts' method='POST'>
+        <label for="title">Title:</label>
+        <input class="form-control" type="text" name='title' id='title' placeholder="Enter Title" aria-label="Enter Title">
+        <br>
+        <br>
+        <label for="content">Post:</label>
+        <textarea class="form-control" name='content' id="content" placeholder="Enter Content" aria-label="Enter Content" rows="3"></textarea>
+        <br>
+        <input type='submit' value='Post'>
+    </form>
+    <hr>
+{% endblock %}
